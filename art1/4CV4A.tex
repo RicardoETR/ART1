@@ -1,0 +1,128 @@
+\documentclass[12pt, letter]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\title{Conjunto de compiladores GCC}
+\date{\today}
+\author{Torres Rosas Ricardo Erick \thanks{Rafael Norman Saucedo Delgado}} 
+\usepackage{amsmath, amssymb} 
+\usepackage{amsmath}
+\usepackage[active]{srcltx} 
+\usepackage{amssymb} 
+\usepackage{amscd} 
+\usepackage{makeidx} 
+\usepackage{amsthm} 
+\usepackage{algpseudocode} 
+\usepackage{algorithm}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{color}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage{array}
+\usepackage{longtable}
+\usepackage{multirow} % para las tablas
+%%\usepackage{pdfpages}
+\definecolor{azul}{rgb}{0.03, 0.27, 0.49}
+\usepackage{setspace}
+\renewcommand{\baselinestretch}{1}
+\setcounter{page}{1}
+\setlength{\textheight}{21.6cm}
+\setlength{\textwidth}{14cm}
+\setlength{\oddsidemargin}{1cm}
+\setlength{\evensidemargin}{1cm}
+\pagestyle{myheadings}
+\thispagestyle{empty}
+\markboth{\small{Conjunto de compiladores GCC.}}{\small{ }}
+%%\setlength{\textwidth}{125mm}
+\setlength{\textheight}{230mm}
+%%\setlength{\oddsidemargin}{6mm}
+%%\setlength{\evensidemargin}{28mm}
+\setlength{\topmargin}{-5mm} 
+\begin{document}
+    \include{title}
+    \vfill\pagebreak
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%indice%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\tableofcontents 
+\pagebreak
+%%\vfill\pagebreak
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+\section{Introducción}
+{
+    Una red de de computadoras, también llamada red de ordenadores o red de informática, es un conjunto de equipos conectados por medio de cables, señales, ondas o cualquier otro método de transporte de datos, que comparten información (archivos), recursos (CD-ROM, impresoras, etc), servicios (acceso a Internet, e-mail, chat, juegos,etc).\\
+
+    Revisaremos los diferentes tipos de conexiones de red que han existido a lo largo de la historia de las computadoras, tanto medios guiados, como medios no guiados. Hoy en día la forma en que nos conectamos a través de internet con nuestros compañeros ha cambiado significativamente a comparación de unos años atras.\\
+    La importancia de las redes en la actualidad es indescriptible, sin la existencia de las redes el mundo no sería como es hoy en día.\\
+}
+\clearpage
+\section{Medios Guiados}
+{
+    \subsection{Tipos de cables de par trenzado}
+    {
+        En la actualidad existen distintas configuraciones de cables de pares trenzados. Dependiendo de su contrucción están orientados a uso doméstico, insdustrial o para transmitir varias señales de datos de forma simultánea. La diferencia mas detacable a primera vista es la forma de aislamiento que implementan, ya que la configuración básica es siempre la misma: cables de cuatro pares trenzados, que son los que usamos en nuestros hogares.
+        {
+    \subsubsection{Cable UTP}
+    {
+        UTP son siglas de `Unshielded Twisted Pair' o cable de par trenzado sin bindaje. Este tipo de cables contienen sus pares trenzados sin blindar, es decir que entre pares de cables no existe un medio de separación que los aísle de las otras parejas.\\ 
+        Este tipo de cable es utilizado en redes locales de corta distancia, ya que al estar expuestos la señal se va degradando. La ventaja de estos cables es su bajo coste.\\
+        Estos cables se utilizan con el conector RJ45, DB25 o DB11. Normalmente tienen una impedancia de 100$\Omega$.
+    }
+    \subsubsection{Cable FTP}
+    {
+        FTP son las siglas de `Foiled Twisted Pair' o cable de par trenzado apantallado.  En este caso tenemos un cable cuyos pares trenzados están separados entre ellos por un sistema básico basado en plástico o material no conductor. En este caso el apantallamiento no es individual, sino global que envuelve a todo el grupo de pares trenzados, y está construido de aluminio.Su impedancia característica es de 120 $\Omega$.
+    }
+    \subsubsection{Cable STP}
+    {
+        STP son las siglas de `Shielded twisted pair' o par trenzado blindado individual. En este caso cada par de cables estan separados por una cubierta de protección hecha de aluminio. \\
+        Estos cables se utilizan en redes que requieren más altas prestaciones como los nuevos estándares Ethernet, en donde se necesita un alto ancho de banda, latencias muy bajas y bajas tasas de error de bit. Estos cables son mas caros que los UTP y permiten tazar mayores distancias sin necesidad de un repetidor. Su impedancia caracteristica es de 150 $\Omega$ 
+    }
+    }
+    {
+        \clearpage
+        \subsubsection{Cable UTP}
+        {
+            UTP son siglas de `Unshielded Twisted Pair' o cable de par trenzado sin bindaje. Este tipo de cables contienen sus pares trenzados sin blindar, es decir que entre pares de cables no existe un medio de separación que los aísle de las otras parejas.\\ 
+            Este tipo de cable es utilizado en redes locales de corta distancia, ya que al estar expuestos la señal se va degradando. La ventaja de estos cables es su bajo coste.\\
+            Estos cables se utilizan con el conector RJ45, DB25 o DB11. Normalmente tienen una impedancia de 100$\Omega$.
+        }
+        \subsubsection{Cable FTP}
+        {
+            FTP son las siglas de `Foiled Twisted Pair' o cable de par trenzado apantallado.  En este caso tenemos un cable cuyos pares trenzados están separados entre ellos por un sistema básico basado en plástico o material no conductor. En este caso el apantallamiento no es individual, sino global que envuelve a todo el grupo de pares trenzados, y está construido de aluminio.Su impedancia característica es de 120 $\Omega$.
+        }
+        \subsubsection{Cable STP}
+        {
+            STP son las siglas de `Shielded twisted pair' o par trenzado blindado individual. En este caso cada par de cables estan separados por una cubierta de protección hecha de aluminio. \\
+            Estos cables se utilizan en redes que requieren más altas prestaciones como los nuevos estándares Ethernet, en donde se necesita un alto ancho de banda, latencias muy bajas y bajas tasas de error de bit. Estos cables son mas caros que los UTP y permiten tazar mayores distancias sin necesidad de un repetidor. Su impedancia caracteristica es de 150 $\Omega$ 
+        }
+        }
+    }
+    \clearpage
+    \subsection{Cable Coaxial}
+    {
+        El cable coaxial consiste en un núcleo sólido o trenzado de cobre, rodeado por un dieléctrico (aislante especial). Un trenzado o tejido de capa de protección de malla de cobre que está conectado a tierra de la señal y que absorbe Interferencia electromagnética y una cubierta exterior protectora (camisa aislante). Todas estas capas son concéntricas alrededor de un eje común,  de ahí el nombre coaxial.\\
+        El cable coaxial es más resistente a interferencias y atenuación que el cable de par trenzado, transmite voz, vídeo y datos.\\
+        \subsubsection{cable thinnet}
+        {
+            A este cable también se le conoce como Ethernet 10 Base 2. 10 se refiere a la tasa de transferencia de datos. Transfiere datos a la velocidad de 10 Mbps, 2 se refiere a la distancia permitida entre los dispositivos, no debe ser más de 2 metros.\\
+            Número total de dispositivos conectados – 30 dispositivos por tronco. El cable Thinnet es un cable coaxial flexible de aproximadamente 0,64 centímetros de espesor.\\
+        }
+        \subsubsection{Cable Thicknet}
+        {
+            A este cable también se le conoce como Ethernet 10 Base 5. 10 se refiere a la tasa de transferencia de datos. Transfiere datos a la velocidad de 10 Mbps, 5 se refiere a la distancia entre los dispositivos debe ser no más de 5 metros.\\
+            La longitud del segmento es de 500 metros, Thicknet cable es un cable coaxial relativamente rígido, de alrededor de 1,27 centímetros de diámetro.\\
+        }
+    }
+    \clearpage
+    \subsection{Cable de Fibra Óptica}
+    {
+        La Internet por fibra óptica, más comúnmente denominada Internet por fibra o solo "fibra", es una conexión de banda ancha que puede alcanzar velocidades de hasta 940 Megabits por segundo (Mbps), con poca demora.\\
+        Los cables de fibra están formados por muchas fibras ópticas más pequeñas . Estas fibras son extremadamente delgadas, para ser específicos, tienen menos de una décima parte del grosor de un cabello humano. Aunque son delgados, están sucediendo muchas cosas. Cada fibra óptica tiene dos partes:\\
+        \begin{itemize}
+            \item {El núcleo: generalmente hecho de vidrio, el núcleo es la parte más interna de la fibra, a través de la cual pasa la luz.}
+            \item {El revestimiento: generalmente hecho de una capa más gruesa de plástico o vidrio, el revestimiento se envuelve alrededor del núcleo.}
+        \end{itemize}
+        Estas dos partes trabajan juntas para crear un fenómeno llamado reflexión interna total . La reflexión interna total es cómo la luz puede moverse hacia abajo por las fibras, sin escapar. Es cuando la luz golpea el vidrio en un ángulo extremadamente superficial, menos de 42 grados, y se refleja nuevamente como si se reflejara en un espejo. El revestimiento mantiene la luz en el núcleo porque el vidrio / plástico del que está hecho tiene una densidad óptica diferente  o un índice de refracción más bajo . Ambos términos se refieren a cómo se dobla el vidrio ( refracción ) y, por lo tanto, ralentiza la luz.  \\
+    }
+}
+\end{document}
